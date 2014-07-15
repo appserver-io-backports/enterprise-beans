@@ -1,0 +1,19 @@
+{
+    "name": "techdivision/enterprisebeans",
+    "description": "Contains the Enterprise PHP Beans classes and interfaces.",
+    "homepage": "https://github.com/techdivision/TechDivision_PersistenceContainer",
+    "license": [ "OSL-3.0" ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "TechDivision\\EnterpriseBeans": ["src/", "tests/"]
+        }
+    },
+    "config":{
+        "github-oauth":{
+            "github.com":"604a3b5943228e434a5b52c2ba3cf72286d30db9"
+        }
+    }
+}

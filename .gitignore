@@ -1,0 +1,8 @@
+/target
+/build.properties
+/instance-src
+/.buildpath
+/.project
+/.settings
+.idea/workspace.xml
+.idea/tasks.xml
