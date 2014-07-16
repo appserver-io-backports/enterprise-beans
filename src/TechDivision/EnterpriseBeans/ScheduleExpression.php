@@ -95,7 +95,7 @@ class ScheduleExpression implements \Serializable
      */
     public function serialize()
     {
-        // TODO: Implement serialize() method.
+        return serialize($this);
     }
 
     /**
@@ -109,7 +109,7 @@ class ScheduleExpression implements \Serializable
      */
     public function unserialize($serialized)
     {
-        // TODO: Implement unserialize() method.
+        unserialize($serialized);
     }
 
     /**
