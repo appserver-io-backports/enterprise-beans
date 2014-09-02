@@ -147,7 +147,7 @@ class ScheduleExpression implements \Serializable
      */
     public function end(\DateTime $e)
     {
-        $this->end = $e;
+        $this->end = $e->format('Y-m-d');
         return $this;
     }
 
@@ -318,7 +318,7 @@ class ScheduleExpression implements \Serializable
      */
     public function start(\DateTime $s)
     {
-        $this->start = (string)$s;
+        $this->start = $s->format('Y-m-d');
         return $this;
     }
 
