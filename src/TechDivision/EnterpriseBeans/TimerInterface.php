@@ -45,7 +45,9 @@ interface TimerInterface
      * Get the number of milliseconds that will elapse before the next scheduled timer expiration.
      *
      * @return int Number of milliseconds that will elapse before the next scheduled timer expiration.
-     * @throws \TechDivision\EnterpriseBeans\EnterpriseBeansException If this method could not complete due to a system-level failure.
+     * @throws \TechDivision\EnterpriseBeans\NoSuchObjectLocalException If invoked on a timer that has expired or has been cancelled
+     * @throws \TechDivision\EnterpriseBeans\NoMoreTimeoutsException Indicates that the timer has no future timeouts
+     * @throws \TechDivision\EnterpriseBeans\EnterpriseBeansException If this method could not complete due to a system-level failure
      **/
     public function getTimeRemaining();
 
@@ -53,7 +55,9 @@ interface TimerInterface
      * Get the point in time at which the next timer expiration is scheduled to occur.
      *
      * @return \DateTime Get the point in time at which the next timer expiration is scheduled to occur.
-     * @throws \TechDivision\EnterpriseBeans\EnterpriseBeansException If this method could not complete due to a system-level failure.
+     * @throws \TechDivision\EnterpriseBeans\NoSuchObjectLocalException If invoked on a timer that has expired or has been cancelled
+     * @throws \TechDivision\EnterpriseBeans\NoMoreTimeoutsException Indicates that the timer has no future timeouts
+     * @throws \TechDivision\EnterpriseBeans\EnterpriseBeansException If this method could not complete due to a system-level failure
      **/
     public function getNextTimeout();
 
@@ -79,6 +83,7 @@ interface TimerInterface
      * Get the schedule expression corresponding to this timer.
      *
      * @return \TechDivision\EnterpriseBeans\ScheduleExpression
+     * @throws \TechDivision\Lang\IllegalStateException If this method is invoked while the instance is in a state that does not allow access to this method
      * @throws \TechDivision\EnterpriseBeans\EnterpriseBeansException If this method could not complete due to a system-level failure.
      */
     public function getSchedule();

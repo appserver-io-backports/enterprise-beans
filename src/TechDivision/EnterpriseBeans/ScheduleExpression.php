@@ -36,6 +36,14 @@ namespace TechDivision\EnterpriseBeans;
  */
 class ScheduleExpression implements \Serializable
 {
+
+    /**
+     * The date format we use to serialize/unserialize \DateTime properties.
+     *
+     * @var string
+     */
+    const DATE_FORMAT = 'Y-m-d H:i:s';
+
     /**
      * @var string
      */
@@ -47,7 +55,7 @@ class ScheduleExpression implements \Serializable
     private $dayOfWeek = "*";
 
     /**
-     * @var \DateTime
+     * @var string
      */
     private $end;
 
@@ -72,7 +80,7 @@ class ScheduleExpression implements \Serializable
     private $second = "0";
 
     /**
-     * @var \DateTime
+     * @var string
      */
     private $start;
 
@@ -86,30 +94,30 @@ class ScheduleExpression implements \Serializable
      */
     private $year = "*";
 
-     /**
-     * (PHP 5 &gt;= 5.1.0)<br/>
-     * String representation of object
+    /**
+     * String representation of object.
       *
-     * @link http://php.net/manual/en/serializable.serialize.php
      * @return string the string representation of the object or null
+     * @link http://php.net/manual/en/serializable.serialize.php
      */
     public function serialize()
     {
-        return serialize($this);
+        return serialize(get_object_vars($this));
     }
 
     /**
-     * (PHP 5 &gt;= 5.1.0)<br/>
      * Constructs the object
      *
-     * @param string $serialized The string representation of the object.
+     * @param string $data The string representation of the object
      *
-     * @link http://php.net/manual/en/serializable.unserialize.php
      * @return void
+     * @link http://php.net/manual/en/serializable.unserialize.php
      */
-    public function unserialize($serialized)
+    public function unserialize($data)
     {
-        unserialize($serialized);
+        foreach (unserialize($data) as $propertyName => $propertyValue) {
+            $this->$propertyName = $propertyValue;
+        }
     }
 
     /**
@@ -147,7 +155,7 @@ class ScheduleExpression implements \Serializable
      */
     public function end(\DateTime $e)
     {
-        $this->end = $e;
+        $this->end = $e->format(ScheduleExpression::DATE_FORMAT);
         return $this;
     }
 
@@ -224,7 +232,7 @@ class ScheduleExpression implements \Serializable
     /**
      * Return's start date time
      *
-     * @return \DateTime
+     * @return string
      */
     public function getStart()
     {
@@ -279,7 +287,7 @@ class ScheduleExpression implements \Serializable
      */
     public function minute($m)
     {
-        $this->minute = (string)m;
+        $this->minute = (string)$m;
         return $this;
     }
 
@@ -318,7 +326,7 @@ class ScheduleExpression implements \Serializable
      */
     public function start(\DateTime $s)
     {
-        $this->start = (string)$s;
+        $this->start = $s->format(ScheduleExpression::DATE_FORMAT);
         return $this;
     }
 
