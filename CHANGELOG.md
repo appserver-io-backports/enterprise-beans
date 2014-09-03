@@ -1,3 +1,14 @@
+# Version 0.1.2
+
+## Bugfixes
+
+* Bugfix for invalid serialize/unserialize methods in ScheduleExpression
+* Add missing exeptions to TimerInterface doc block
+
+## Features
+
+* Add NoMoreTimeoutsException that indicates that a calendar-based timer will not result in any more timeouts
+
 # Version 0.1.1
 
 ## Bugfixes
