@@ -8,6 +8,8 @@
 ## Features
 
 * Add NoMoreTimeoutsException that indicates that a calendar-based timer will not result in any more timeouts
+* Add bootstrap.php + phpunit.xml
+* Refactor travis.yml for compatiblity with appserver-io/build process
 
 # Version 0.1.1
 
