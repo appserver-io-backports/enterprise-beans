@@ -95,10 +95,10 @@ class ScheduleExpression implements \Serializable
     private $year = "*";
 
     /**
-     * String representation of object
+     * String representation of object.
       *
-     * @link http://php.net/manual/en/serializable.serialize.php
      * @return string the string representation of the object or null
+     * @link http://php.net/manual/en/serializable.serialize.php
      */
     public function serialize()
     {
@@ -108,10 +108,10 @@ class ScheduleExpression implements \Serializable
     /**
      * Constructs the object
      *
-     * @param string $serialized The string representation of the object.
+     * @param string $data The string representation of the object
      *
-     * @link http://php.net/manual/en/serializable.unserialize.php
      * @return void
+     * @link http://php.net/manual/en/serializable.unserialize.php
      */
     public function unserialize($data)
     {
