@@ -34,6 +34,13 @@ interface TimerInterface
 {
 
     /**
+     * The unique identifier for this timer.
+     *
+     * @return string
+     */
+    public function getId();
+
+    /**
      * Cause the timer and all its associated expiration notifications to be canceled.
      *
      * @return void
@@ -42,9 +49,32 @@ interface TimerInterface
     public function cancel();
 
     /**
-     * Get the number of milliseconds that will elapse before the next scheduled timer expiration.
+     * Creates and schedules a TimerTask for the next timeout of this timer.
      *
-     * @return int Number of milliseconds that will elapse before the next scheduled timer expiration.
+     * @param boolean $newTimer TRUE if this is a new timer being scheduled, and not a re-schedule due to a timeout
+     *
+     * @return void
+     */
+    public function scheduleTimeout($newTimer);
+
+    /**
+     * Returns the first expiry of this timer.
+     *
+     * @return \DateTime The first expiry of this timer
+     */
+    public function getInitialExpiration();
+
+    /**
+     * Returns the duration (in microseconds) between timeouts.
+     *
+     * @return integer The duration (in microseconds) between timeouts
+     */
+    public function getIntervalDuration();
+
+    /**
+     * Get the number of microseconds that will elapse before the next scheduled timer expiration.
+     *
+     * @return int Number of microseconds that will elapse before the next scheduled timer expiration.
      * @throws \TechDivision\EnterpriseBeans\NoSuchObjectLocalException If invoked on a timer that has expired or has been cancelled
      * @throws \TechDivision\EnterpriseBeans\NoMoreTimeoutsException Indicates that the timer has no future timeouts
      * @throws \TechDivision\EnterpriseBeans\EnterpriseBeansException If this method could not complete due to a system-level failure
