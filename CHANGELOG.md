@@ -1,3 +1,14 @@
+# Version 0.1.2
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add MethodInterface and TimedObjectInvokerInterface
+* Refactor TimerInterface and TimerServiceInterface
+
 # Version 0.1.1
 
 ## Bugfixes

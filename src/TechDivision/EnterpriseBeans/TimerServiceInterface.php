@@ -37,44 +37,48 @@ namespace TechDivision\EnterpriseBeans;
  */
 interface TimerServiceInterface
 {
+
     /**
      * Create a calendar-based timer based on the input schedule expression.
      *
-     * @param \TechDivision\EnterpriseBeans\ScheduleExpression $schedule    A schedule expression describing the timeouts for this timer.
-     * @param \TechDivision\EnterpriseBeans\TimerConfig        $timerConfig Timer configuration.
+     * @param \TechDivision\EnterpriseBeans\ScheduleExpression $schedule      A schedule expression describing the timeouts for this timer
+     * @param \Serializable                                    $info          Serializable info that will be made available through the newly created timers Timer::getInfo() method
+     * @param boolean                                          $persistent    TRUE if the newly created timer has to be persistent
+     * @param \TechDivision\EnterpriseBeans\MethodInterface    $timeoutMethod The timeout method to be invoked
      *
      * @return \TechDivision\EnterpriseBeans\TimerInterface The newly created Timer.
      * @throws \TechDivision\EnterpriseBeans\EnterpriseBeansException If this method could not complete due to a system-level failure.
      */
-    public function createCalendarTimer(ScheduleExpression $schedule, TimerConfig $timerConfig = null);
+    public function createCalendarTimer(ScheduleExpression $schedule, \Serializable $info = null, $persistent = true, MethodInterface $timeoutMethod = null);
 
     /**
      * Create an interval timer whose first expiration occurs at a given point in time and
      * whose subsequent expirations occur after a specified interval.
      *
-     * @param int                                       $initialExpiration The number of milliseconds that must elapse before the firsttimer expiration notification.
-     * @param int                                       $intervalDuration  The number of milliseconds that must elapse between timer
+     * @param integer       $initialExpiration The number of milliseconds that must elapse before the firsttimer expiration notification
+     * @param integer       $intervalDuration  The number of milliseconds that must elapse between timer
      *      expiration notifications. Expiration notifications are scheduled relative to the time of the first expiration. If
      *      expiration is delayed(e.g. due to the interleaving of other method calls on the bean) two or more expiration notifications
      *      may occur in close succession to "catch up".
-     * @param \TechDivision\EnterpriseBeans\TimerConfig $timerConfig       Timer configuration.
+     * @param \Serializable $info              Serializable info that will be made available through the newly created timers Timer::getInfo() method
+     * @param boolean       $persistent        TRUE if the newly created timer has to be persistent
      *
-     * @return \TechDivision\EnterpriseBeans\TimerInterface The newly created Timer.
-     * @throws \TechDivision\EnterpriseBeans\EnterpriseBeansException If this method could not complete due to a system-level failure.
+     * @return \TechDivision\EnterpriseBeans\TimerInterface The newly created Timer
+     * @throws \TechDivision\EnterpriseBeans\EnterpriseBeansException If this method could not complete due to a system-level failure
      **/
-    public function createIntervalTimer($initialExpiration, $intervalDuration, TimerConfig $timerConfig);
+    public function createIntervalTimer($initialExpiration, $intervalDuration, \Serializable $info = null, $persistent = true);
 
     /**
      * Create a single-action timer that expires after a specified duration.
      *
-     * @param int                                       $duration    The number of milliseconds that must elapse before
-     *                                                               the timer expires.
-     * @param \TechDivision\EnterpriseBeans\TimerConfig $timerConfig Timer configuration.
+     * @param integer       $duration   The number of microseconds that must elapse before the timer expires
+     * @param \Serializable $info       Serializable info that will be made available through the newly created timers Timer::getInfo() method
+     * @param boolean       $persistent TRUE if the newly created timer has to be persistent
      *
      * @return \TechDivision\EnterpriseBeans\TimerInterface The newly created Timer.
      * @throws \TechDivision\EnterpriseBeans\EnterpriseBeansException If this method could not complete due to a system-level failure.
      **/
-    public function createSingleActionTimer($duration, TimerConfig $timerConfig);
+    public function createSingleActionTimer($duration, \Serializable $info = null, $persistent = true);
 
     /**
      * Get all the active timers associated with this bean.
@@ -95,4 +99,14 @@ interface TimerServiceInterface
      * @throws \TechDivision\EnterpriseBeans\EnterpriseBeansException If this method could not complete due to a system-level failure.
      **/
     public function getAllTimers();
+
+    /**
+     * Creates and schedules a timer taks for the next timeout of the passed timer.
+     *
+     * @param \TechDivision\EnterpriseBeans\TimerInterface $timer    The timer we want to schedule a task for
+     * @param boolean                                      $newTimer TRUE if this is a new timer being scheduled, and not a re-schedule due to a timeout
+     *
+     * @return void
+     */
+    public function scheduleTimeout(TimerInterface $timer, $newTimer);
 }
