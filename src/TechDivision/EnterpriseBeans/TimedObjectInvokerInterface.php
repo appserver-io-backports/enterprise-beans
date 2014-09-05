@@ -40,8 +40,10 @@ interface TimedObjectInvokerInterface
      * passed timer. The timerservice implementation will be responsible for passing the correct
      * timeout method corresponding to the <code>timer</code> on which the timeout has occurred.
      *
-     * @param \TechDivision\EnterpriseBean\TimerInterface  $timer          The timer that is passed to timeout
-     * @param \TechDivision\EnterpriseBean\MethodInterface $timeoutMethod  The timeout method
+     * @param \TechDivision\EnterpriseBean\TimerInterface  $timer         The timer that is passed to timeout
+     * @param \TechDivision\EnterpriseBean\MethodInterface $timeoutMethod The timeout method
+     *
+     * @return void
      */
     public function callTimeout(TimerInterface $timer, MethodInterface $timeoutMethod = null);
 }

@@ -55,13 +55,13 @@ interface TimerServiceInterface
      * Create an interval timer whose first expiration occurs at a given point in time and
      * whose subsequent expirations occur after a specified interval.
      *
-     * @param integer                                       $initialExpiration The number of milliseconds that must elapse before the firsttimer expiration notification
-     * @param integer                                       $intervalDuration  The number of milliseconds that must elapse between timer
+     * @param integer       $initialExpiration The number of milliseconds that must elapse before the firsttimer expiration notification
+     * @param integer       $intervalDuration  The number of milliseconds that must elapse between timer
      *      expiration notifications. Expiration notifications are scheduled relative to the time of the first expiration. If
      *      expiration is delayed(e.g. due to the interleaving of other method calls on the bean) two or more expiration notifications
      *      may occur in close succession to "catch up".
-     * @param boolean                                       $persistent    TRUE if the newly created timer has to be persistent
-     * @param \TechDivision\EnterpriseBeans\MethodInterface $timeoutMethod The timeout method to be invoked
+     * @param \Serializable $info              Serializable info that will be made available through the newly created timers Timer::getInfo() method
+     * @param boolean       $persistent        TRUE if the newly created timer has to be persistent
      *
      * @return \TechDivision\EnterpriseBeans\TimerInterface The newly created Timer
      * @throws \TechDivision\EnterpriseBeans\EnterpriseBeansException If this method could not complete due to a system-level failure
@@ -71,9 +71,9 @@ interface TimerServiceInterface
     /**
      * Create a single-action timer that expires after a specified duration.
      *
-     * @param integer                                          $duration      The number of microseconds that must elapse before the timer expires
-     * @param boolean                                          $persistent    TRUE if the newly created timer has to be persistent
-     * @param \TechDivision\EnterpriseBeans\MethodInterface    $timeoutMethod The timeout method to be invoked
+     * @param integer       $duration   The number of microseconds that must elapse before the timer expires
+     * @param \Serializable $info       Serializable info that will be made available through the newly created timers Timer::getInfo() method
+     * @param boolean       $persistent TRUE if the newly created timer has to be persistent
      *
      * @return \TechDivision\EnterpriseBeans\TimerInterface The newly created Timer.
      * @throws \TechDivision\EnterpriseBeans\EnterpriseBeansException If this method could not complete due to a system-level failure.
