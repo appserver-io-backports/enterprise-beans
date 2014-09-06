@@ -46,4 +46,19 @@ interface TimedObjectInvokerInterface
      * @return void
      */
     public function callTimeout(TimerInterface $timer, MethodInterface $timeoutMethod = null);
+
+    /**
+     * Returns the timeout methods.
+     *
+     * @return \TechDivision\Storage\StorageInterface A collection of timeout methods
+     **/
+    public function getTimeoutMethods();
+
+
+    /**
+     * The globally unique identifier for this timed object invoker.
+     *
+     * @return string
+     */
+    public function getTimedObjectId();
 }
