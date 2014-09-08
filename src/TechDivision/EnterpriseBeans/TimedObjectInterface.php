@@ -36,6 +36,13 @@ interface TimedObjectInterface
 {
 
     /**
+     * The name of the default timeout method.
+     *
+     * @var string
+     */
+    const DEFAULT_TIMEOUT_METHOD = 'timeout';
+
+    /**
      * Invoked by the container upon timer expiration.
      *
      * @param \TechDivision\EnterpriseBeans\TimerInterface $timer Timer whose expiration caused this notification
