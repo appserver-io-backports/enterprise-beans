@@ -1,3 +1,14 @@
+# Version 0.1.3
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add TimedObjectInterface::DEFAULT_TIMEOUT_METHOD constant with default timeout method name
+* Add TimedObjectInvokerInterface::getTimedObjectId() and TimedObjectInvokerInterface::getTimeoutMethods() methods
+
 # Version 0.1.2
 
 ## Bugfixes
