@@ -4,12 +4,13 @@
 	"homepage" : "https://github.com/techdivision/TechDivision_EnterpriseBeans",
 	"license" : "OSL-3.0",
 	"require" : {
-		"php" : ">=5.4.0"
+		"php" : ">=5.4.0",
+		"techdivision/lang" : "0.1.*"
 	},
-    "require-dev" : {
-        "phpunit/phpunit" : "3.7.*",
-        "appserver-io/build" : "0.1.*"
-    },
+	"require-dev" : {
+		"phpunit/phpunit" : "3.7.*",
+		"appserver-io/build" : "0.1.*"
+	},
 	"autoload" : {
 		"psr-0" : {
 			"TechDivision\\EnterpriseBeans" : [

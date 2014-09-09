@@ -20,6 +20,8 @@
 
 namespace TechDivision\EnterpriseBeans;
 
+use TechDivision\Lang\Reflection\MethodInterface;
+
 /**
  * Interface for timed object invokers.
  *
@@ -40,8 +42,8 @@ interface TimedObjectInvokerInterface
      * passed timer. The timerservice implementation will be responsible for passing the correct
      * timeout method corresponding to the <code>timer</code> on which the timeout has occurred.
      *
-     * @param \TechDivision\EnterpriseBean\TimerInterface  $timer         The timer that is passed to timeout
-     * @param \TechDivision\EnterpriseBean\MethodInterface $timeoutMethod The timeout method
+     * @param \TechDivision\EnterpriseBean\TimerInterface   $timer         The timer that is passed to timeout
+     * @param \TechDivision\Lang\Reflection\MethodInterface $timeoutMethod The timeout method
      *
      * @return void
      */

@@ -21,6 +21,8 @@
 
 namespace TechDivision\EnterpriseBeans;
 
+use TechDivision\Lang\Reflection\MethodInterface;
+
 /**
  * The TimerService interface provides enterprise bean components with access to the
  * container-provided Timer Service. The Timer Service allows stateless session beans,
@@ -44,7 +46,7 @@ interface TimerServiceInterface
      * @param \TechDivision\EnterpriseBeans\ScheduleExpression $schedule      A schedule expression describing the timeouts for this timer
      * @param \Serializable                                    $info          Serializable info that will be made available through the newly created timers Timer::getInfo() method
      * @param boolean                                          $persistent    TRUE if the newly created timer has to be persistent
-     * @param \TechDivision\EnterpriseBeans\MethodInterface    $timeoutMethod The timeout method to be invoked
+     * @param \TechDivision\Lang\Reflection\MethodInterface    $timeoutMethod The timeout method to be invoked
      *
      * @return \TechDivision\EnterpriseBeans\TimerInterface The newly created Timer.
      * @throws \TechDivision\EnterpriseBeans\EnterpriseBeansException If this method could not complete due to a system-level failure.

@@ -1,3 +1,14 @@
+# Version 0.1.4
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Move MethodInterface to techdivision/lang package
+* Add techdivision/lang 0.1.* as composer dependency
+
 # Version 0.1.3
 
 ## Bugfixes
