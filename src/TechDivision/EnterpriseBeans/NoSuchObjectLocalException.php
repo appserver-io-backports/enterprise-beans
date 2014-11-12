@@ -11,7 +11,7 @@
  * PHP version 5
  *
  * @category  Library
- * @package   TechDivision\EnterpriseBeans
+ * @package   TechDivision_EnterpriseBeans
  * @author    Johann Zelger <j.zelger@techdivision.com>
  * @copyright 2014 TechDivision GmbH <info@techdivision.com>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
@@ -25,7 +25,7 @@ namespace TechDivision\EnterpriseBeans;
  * (local EB object or timer) that no longer exists.
  *
  * @category  Library
- * @package   TechDivision\EnterpriseBeans
+ * @package   TechDivision_EnterpriseBeans
  * @author    Johann Zelger <j.zelger@techdivision.com>
  * @copyright 2014 TechDivision GmbH <info@techdivision.com>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)

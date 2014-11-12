@@ -1,3 +1,13 @@
+# Version 0.1.5
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Move annotations from persistence container package to this package
+
 # Version 0.1.4
 
 ## Bugfixes
