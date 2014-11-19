@@ -1,3 +1,14 @@
+# Version 0.1.6
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add lookup attribute to AbstractBeanAnnotation
+* Singleton, Stateful, Stateless + MessageDriven annotation now extend from EnterpriseBean annotation
+
 # Version 0.1.5
 
 ## Bugfixes
