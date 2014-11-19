@@ -67,4 +67,14 @@ abstract class AbstractBeanAnnotation extends ReflectionAnnotation
     {
         return $this->values[AnnotationKeys::DESCRIPTION];
     }
+
+    /**
+     * Returns the value of the lookup attribute.
+     *
+     * @return string The annotations lookup attribute
+     */
+    public function getLookup()
+    {
+        return $this->values[AnnotationKeys::LOOKUP];
+    }
 }

@@ -65,6 +65,13 @@ class AnnotationKeys
     const BEAN_NAME = 'beanName';
 
     /**
+     * Key for the annotation property 'lookup'.
+     *
+     * @var string
+     */
+    const LOOKUP = 'lookup';
+
+    /**
      * Key for the annotation property 'description'.
      *
      * @var string
